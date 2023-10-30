@@ -61,7 +61,7 @@ const handleRequest2 = async (req, res) => {
     }
 
     try {
-        const response = await axios.post(API_URL, messagePayload, {
+       const response = await axios.post(API_URL, messagePayload, {
             headers: {
                 'x-api-key': API_KEY,
                 'content-type': 'application/json'
