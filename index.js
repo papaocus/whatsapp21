@@ -11,8 +11,8 @@ const handleRequest2 = async (req, res) => {
             sender: {
                 phone: req.body.sender.id,
                 name: req.body.sender.name,
-                country_code: "91", // You can adjust this if needed
-                dial_code: "8x98xx21x4" // You can adjust this if needed
+                country_code: "91", 
+                dial_code: "8x98xx21x4" 
             }
         }
     };
@@ -20,7 +20,7 @@ const handleRequest2 = async (req, res) => {
     if (payload.type === "image") {
         messagePayload.payload.type = "image";
         messagePayload.payload.payload = {
-            caption: payload.caption || "", // Optional caption
+            caption: payload.caption || "", 
             url: payload.url,
             contentType: payload.contentType,
             urlExpiry: payload.urlExpiry
@@ -35,7 +35,7 @@ const handleRequest2 = async (req, res) => {
     } else if (payload.type === "video") {
         messagePayload.payload.type = "video";
         messagePayload.payload.payload = {
-            caption: payload.caption || "", // Optional caption
+            caption: payload.caption || "", 
             url: payload.url,
             contentType: payload.contentType,
             urlExpiry: payload.urlExpiry
@@ -43,7 +43,7 @@ const handleRequest2 = async (req, res) => {
     } else if (payload.type === "document") {
         messagePayload.payload.type = "file";
         messagePayload.payload.payload = {
-            caption: payload.caption || "", // Optional caption
+            caption: payload.caption || "", 
             name: payload.name,
             url: payload.url,
             contentType: payload.contentType,
@@ -56,8 +56,8 @@ const handleRequest2 = async (req, res) => {
             contentType: payload.contentType,
             urlExpiry: payload.urlExpiry
         };
-    } else {
-        // Handle other types or scenarios as needed
+    } 
+
     }
 
     try {
