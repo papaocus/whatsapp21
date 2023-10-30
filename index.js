@@ -1,22 +1,22 @@
 const handleRequest2 = async (req, res) => {
-    const payload = req.body.payload.payload;
-    const messagePayload = {
-        app: "DemoApp",
-        timestamp: req.body.timestamp,
-        version: 2,
-        type: "message",
-        payload: {
-            id: payload.id,
-            source: req.body.sender.id,
-            sender: {
-                phone: req.body.sender.id,
-                name: req.body.sender.name,
-                country_code: "91", 
-                dial_code: "8x98xx21x4" 
+    try {
+        const payload = req.body.payload.payload;
+        const messagePayload = {
+            app: "DemoApp",
+            timestamp: req.body.timestamp,
+            version: 2,
+            type: "message",
+            payload: {
+                id: payload.id,
+                source: req.body.sender.id,
+                sender: {
+                    phone: req.body.sender.id,
+                    name: req.body.sender.name,
+                    country_code: "91", 
+                    dial_code: "8x98xx21x4" 
+                }
             }
-        }
-    };
-
+        };
     if (payload.type === "image") {
         messagePayload.payload.type = "image";
         messagePayload.payload.payload = {
@@ -68,12 +68,10 @@ const handleRequest2 = async (req, res) => {
             }
         });
 
-        // Await for the event to be emitted
         const answer = await new Promise(resolve => events.once('receivedChatbotReply', resolve));
         let parsedPayload = JSON.parse(answer.messagePayload);
         console.log('Received text:', parsedPayload.text);
 
-        // Return the message from the chatbot-reply response
         return res.send(parsedPayload.text);
     } catch (error) {
         console.error('Error calling the API:', error.response ? error.response.data : error.message);
