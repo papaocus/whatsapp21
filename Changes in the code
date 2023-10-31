@@ -1,0 +1,6 @@
+The modified code starts by creating a messagePayload object that follows a different structure.
+This code includes an improved structure for handling various types of payloads (image, audio, video, document, sticker). The messagePayload object is determined based on the type of payload received. It checks the payload.type and structures the payload accordingly.
+Similar to the previous code, it also calls the API at API_URL with the messagePayload in the request body, awaits the event to be emitted, listens for receivedChatbotReply, parses the response, and sends the parsed text in the response.
+Key Changes Explained:
+Structured Message Payload: The significant alteration is how the message payload is structured. The updated code separates the handling based on the type of payload (image, audio, etc.). This provides more detailed and structured information for different types of messages being handled.
+Improvements in Data Structuring: The modified code involves an enhancement in managing different types of incoming messages. It segments the payload handling into distinct types, allowing for more specific and tailored responses based on the received message types.
